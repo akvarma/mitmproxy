@@ -472,7 +472,7 @@ def build():  # pragma: no cover
     """
     be = BuildEnviron.from_env()
     be.dump_info()
-
+    print(be.should_build_wininstaller, be.rtool_key) 
     be.check_version()
     os.makedirs(be.dist_dir, exist_ok=True)
 

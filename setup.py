@@ -86,6 +86,7 @@ setup(
     extras_require={
         ':sys_platform == "win32"': [
             "pydivert>=2.0.3,<2.2",
+            "websockets>=6.0.0, <6.0.1"
         ],
         'dev': [
             "asynctest>=0.12.0",
@@ -102,9 +103,11 @@ setup(
             "requests>=2.9.1, <3",
             "tox>=3.5,<3.6",
             "rstcheck>=2.2, <4.0",
+            "websockets>=6.0.0, <6.0.1"
         ],
         'examples': [
-            "beautifulsoup4>=4.4.1, <4.7"
+            "beautifulsoup4>=4.4.1, <4.7",
+            "websockets>=6.0.0, <6.0.1"
         ]
     }
 )

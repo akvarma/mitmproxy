@@ -1,3 +1,4 @@
+import websockets
 from mitmproxy import addons
 from mitmproxy import options
 from mitmproxy import master

@@ -3,6 +3,7 @@ This file contains python3.6+ syntax!
 Feel free to import and use whatever new package you deem necessary.
 """
 
+import websockets
 import os
 import sys
 import asyncio

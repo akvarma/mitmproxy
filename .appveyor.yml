@@ -33,6 +33,10 @@ test_script:
 deploy_script:
   ps: tox -e cibuild -- upload
 
+artifacts:
+  - path: .release\dist\mitmproxy-master-windows.zip
+    name: mitmproxy
+
 cache:
   - C:\projects\mitmproxy\release\installbuilder\setup -> .appveyor.yml
   - C:\Users\appveyor\AppData\Local\pip\cache

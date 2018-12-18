@@ -34,7 +34,7 @@ deploy_script:
   ps: tox -e cibuild -- upload
 
 artifacts:
-  - path: .release\dist\mitmproxy-master-windows.zip
+  - path: .\release\dist\mitmproxy-master-windows.zip
     name: mitmproxy
 
 cache:

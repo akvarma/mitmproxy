@@ -81,6 +81,7 @@ setup(
         "tornado>=4.3,<5.2",
         "urwid>=2.0.1,<2.1",
         "wsproto>=0.12.0,<0.13.0",
+        "websockets>=6.0.0, <6.0.1"
     ],
     extras_require={
         ':sys_platform == "win32"': [

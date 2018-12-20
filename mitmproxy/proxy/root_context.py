@@ -51,6 +51,7 @@ class RootContext:
         # 1. check for --ignore
         if self.config.check_ignore:
             ignore = self.config.check_ignore(top_layer.server_conn.address)
+            print("server_conn.address", top_layer.server_conn.address)
             if not ignore and client_tls:
                 try:
                     client_hello = tls.ClientHello.from_file(self.client_conn.rfile)
@@ -58,6 +59,7 @@ class RootContext:
                     self.log("Cannot parse Client Hello: %s" % repr(e), "error")
                 else:
                     ignore = self.config.check_ignore((client_hello.sni, 443))
+                    print("sni", client_hello.sni)
             if ignore:
                 return protocol.RawTCPLayer(top_layer, ignore=True)
 

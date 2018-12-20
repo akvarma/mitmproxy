@@ -25,6 +25,7 @@ class RootContext:
 
     def __init__(self, client_conn, config, channel):
         self.client_conn = client_conn
+        print('client_conn',client_conn)
         self.channel = channel
         self.config = config
 

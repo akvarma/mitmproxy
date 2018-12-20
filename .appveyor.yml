@@ -20,14 +20,13 @@ install:
   - "pip install -U tox"
 
 test_script:
-  - ps: |
-      if ($env:APPVEYOR_REPO_COMMIT_MESSAGE.Contains("[notest]")) {
-        echo "!!!! Skipping tests."
-      } else {
-        tox -- --verbose --cov-report=term
-      }
   - ps: tox -e cibuild -- build
 
+
+artifacts:
+  - path: .\release\dist\mitmproxy-master-windows.zip
+    name: mitmproxy
+    
 deploy_script:
   ps: tox -e cibuild -- upload
 

@@ -24,9 +24,11 @@ test_script:
 
 
 artifacts:
-  - path: .\release\dist\mitmproxy-master-windows.zip
+  - path: .\release\dist\mitmproxy-v4.x-windows.zip
     name: mitmproxy
-    
+  - path: .\release\dist\mitmproxy-v4.x-windows-installer.exe 
+    name: mitmproxy-4.x-windows-installer.exe
+
 deploy_script:
   ps: tox -e cibuild -- upload
 

@@ -22,6 +22,8 @@ class HostMatcher:
         if not address:
             return False
         host = "%s:%s" % address
+        print("HostMatcher", host);
+        print("HostMatcher", self.regexes)
         if any(rex.search(host) for rex in self.regexes):
             return True
         else:

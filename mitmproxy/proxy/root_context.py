@@ -56,14 +56,16 @@ class RootContext:
             #attrs = vars(top_layer)
             #print ', '.join("%s: %s" % item for item in attrs.items())
             if not ignore and client_tls:
-                #try:
-                #    client_hello = tls.ClientHello.from_file(self.client_conn.rfile)
-                #except exceptions.TlsProtocolException as e:
-                #    self.log("Cannot parse Client Hello: %s" % repr(e), "error")
-                #else:
-                #    ignore = self.config.check_ignore((client_hello.sni, 443))
-                #    print("sni", client_hello.sni)
-                ignore=1==1    
+                try:
+                    client_hello = tls.ClientHello.from_file(self.client_conn.rfile)
+                except exceptions.TlsProtocolException as e:
+                    self.log("Cannot parse Client Hello: %s" % repr(e), "error")
+                else:
+                    ignore = self.config.check_ignore((client_hello.sni, 443))
+                    print("sni", client_hello.sni)
+                    ignore = True
+                    if "angel" in client_hello.sni:
+                        ignore = False    
             if ignore:
                 return protocol.RawTCPLayer(top_layer, ignore=True)
 

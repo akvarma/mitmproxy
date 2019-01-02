@@ -64,8 +64,9 @@ class RootContext:
                     ignore = self.config.check_ignore((client_hello.sni, 443))
                     print("sni", client_hello.sni)
                     ignore = True
-                    if "angel" in client_hello.sni:
-                        ignore = False
+                    if client_hello.sni is not None:
+                        if "angel" in client_hello.sni:
+                            ignore = False
             #if not ignore and not client_tls:
             #    ignore = True    
             if ignore:

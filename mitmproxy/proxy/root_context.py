@@ -67,8 +67,10 @@ class RootContext:
                     if client_hello.sni is not None:
                         if "angel" in client_hello.sni:
                             ignore = False
-            #if not ignore and not client_tls:
-            #    ignore = True    
+            print('ignore check', ignore, client_tls);
+            if not ignore:
+                if not client_tls:
+                    ignore = True    
             if ignore:
                 return protocol.RawTCPLayer(top_layer, ignore=True)
 
